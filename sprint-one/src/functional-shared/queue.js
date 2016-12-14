@@ -1,10 +1,8 @@
 var Queue = function() {
   var instance = {};
   var lastKey;
+  _.extend(instance, queueMethods);
   instance.sizeLength = 0;
-  instance.enqueue = queueMethods.enqueue;
-  instance.dequeue = queueMethods.dequeue;
-  instance.size = queueMethods.size;
   return instance;
 };
 

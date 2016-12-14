@@ -4,10 +4,8 @@ var Stack = function() {
 
   var instance = {};
   var lastKey;
+  _.extend(instance, stackMethods);
   instance.sizeLength = 0;
-  instance.push = stackMethods.push;
-  instance.pop = stackMethods.pop;
-  instance.size = stackMethods.size;
   return instance;
 };
 
