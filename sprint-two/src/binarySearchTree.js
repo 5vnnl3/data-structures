@@ -28,15 +28,10 @@ bstMethods.contains = function(value) {
   if (this.value === value) {
     return true;
   } else if (this.left && value < this.value) {
-    if (this.left.contains(value)) {
-      return true;
-    } 
+    return !!this.left.contains(value);
   } else if (this.right && value > this.value) {
-    if (this.right.contains(value)) {
-      return true;
-    } 
+    return !!this.right.contains(value);
   }
-  return false;
 };
 
 bstMethods.depthFirstLog = function(cb) {
@@ -67,7 +62,7 @@ bstMethods.closest = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
-O(1): BinarySearchTree, Insert
-O(log n): Contains
+O(1): BinarySearchTree
+O(log n): Contains, Insert
 O(n): DepthFirstLog, Closest
  */

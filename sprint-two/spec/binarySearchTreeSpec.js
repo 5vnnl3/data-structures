@@ -37,6 +37,7 @@ describe('binarySearchTree', function() {
     expect(array).to.eql([5, 2, 3]);
   });
 
+// additional test
   it('should return closest value', function() {
     binarySearchTree.insert(52);
     binarySearchTree.insert(31);
