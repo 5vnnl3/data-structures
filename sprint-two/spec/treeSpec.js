@@ -56,6 +56,7 @@ describe('tree', function() {
     tree.children[0].addChild(7);
     tree.children[1].addChild(8);
     expect(tree.findParent(8)).to.equal(6);
+    expect(tree.findParent(10)).to.equal('no target exists');
   });
 
 });
