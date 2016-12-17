@@ -52,4 +52,10 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should return "no head to remove" if no head exists', function() {
+    linkedList.removeHead();
+    expect(linkedList.removeHead()).to.equal('No head to remove');
+  });
+
+
 });
