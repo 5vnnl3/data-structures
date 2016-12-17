@@ -36,4 +36,12 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
   });
+
+  it('should return closest value', function() {
+    binarySearchTree.insert(52);
+    binarySearchTree.insert(31);
+    binarySearchTree.insert(78);
+    var result = binarySearchTree.closest(38);
+    expect(result).to.eql(31);
+  });
 });

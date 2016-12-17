@@ -49,9 +49,25 @@ bstMethods.depthFirstLog = function(cb) {
   }
 };
 
+bstMethods.closest = function(value) {
+  // returns the first closest value if there are two nodes that are equal distant
+  var closest = 0;
+  if (this.contains(value)) {
+    closest = value;
+  } else {
+    this.depthFirstLog(function(node) { 
+      if (Math.abs(node - value) < Math.abs(closest - value)) {
+        // change < to <= to return last
+        closest = node;
+      }
+    });
+  }
+  return closest;
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
 O(1): BinarySearchTree, Insert
 O(log n): Contains
-O(n): DepthFirstLog
+O(n): DepthFirstLog, Closest
  */
