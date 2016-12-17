@@ -41,4 +41,21 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+// add tests
+  it('should return true if contains is called from the child node looking for itself', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    expect(tree.children[1].children[0].contains(8)).to.equal(true);
+  });
+
+  it('should return parent value of target if contains is called from the top of tree', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    expect(tree.findParent(8)).to.equal(6);
+  });
+
 });

@@ -26,6 +26,20 @@ treeMethods.contains = function(target) {
   return false;
 };
 
+treeMethods.findParent = function(target) {
+  if (this.value === target) {
+    return 'no parent exists';
+  } else if (this.children.length > 0) {
+    for (var i = 0; i < this.children.length; i++) {
+      if (this.children[i].contains(target)) {
+        var parent = this.children[i].value;
+        return parent;
+      } 
+    }
+  }
+  return 'no target exists';
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
 The tree function is O(1), the addChild function is O(1), and 
