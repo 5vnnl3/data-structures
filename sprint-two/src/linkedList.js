@@ -4,12 +4,13 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
+    var node = new Node(value);
     if (list.tail === null) {
-      list.tail = new Node(value);
-      list.head = list.tail;
+      list.tail = node;
+      list.head = node;
     } else {
-      list.tail.next = new Node(value);
-      list.tail = list.tail.next;
+      list.tail.next = node;
+      list.tail = node;
     }
   };
 
@@ -20,12 +21,16 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    var json = JSON.stringify(list);
-    if (json.indexOf('"value":' + target + ',') > -1) {
-      return true;
-    } else {
-      return false;
+    var currentNode = list.head;
+    var result = false;
+    while (currentNode && result === false) {
+      if (currentNode.value === target) {
+        result = true;
+      } else {
+        currentNode = currentNode.next;
+      }
     }
+    return result;
   };
   
   return list;
