@@ -8,6 +8,9 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  if (this.contains(node)) {
+    return;
+  }
   this.nodes.push(node);
 };
 
