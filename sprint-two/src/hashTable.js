@@ -1,8 +1,7 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
+  
 };
 
 HashTable.prototype.insert = function(k, v) {
@@ -11,12 +10,14 @@ HashTable.prototype.insert = function(k, v) {
   if (!bucket) {
     bucket = [[k, v]];
   } else if (this.retrieve(k)) {
-    var oldIndex = bucket.indexOf([k, this.retrieve(k)]);
+    var prevValue = this.retrieve(k);
+    var oldIndex = bucket.indexOf([k, prevValue]);
     bucket.splice(oldIndex, 1, [k, v]);
   } else {
     bucket.push([k, v]);
   }
   this._storage.set(index, bucket);
+  return prevValue ? 'replaced ' + prevValue + ' with ' + v : 'added ' + v;
 };
 
 HashTable.prototype.retrieve = function(k) {
